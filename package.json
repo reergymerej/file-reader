@@ -1,13 +1,16 @@
 {
-  "name": "file-reader",
+  "name": "dir-contents",
   "version": "0.0.1",
-  "description": "Read all the files in a directory.",
+  "description": "read the contents of all files in a directory",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha __tests__/*.es6 --compilers js:babel-register",
     "build": "babel src -d lib",
     "prepublish": "npm run build"
   },
+  "keywords": [
+    "file", "reader", "contents", "text"
+  ],
   "author": "Jeremy Greer",
   "license": "ISC",
   "devDependencies": {
