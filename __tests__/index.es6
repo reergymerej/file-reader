@@ -36,27 +36,33 @@ describe('app', () => {
   });
 
   it('should find all the files in a dir', (done) => {
-    app.readFilesInDir(temp).then(files => {
+    app.read(temp).then(files => {
       will(files.length).be(1);
       done();
     });
   });
 
+  it('should reject when the dir is invalid', (done) => {
+    app.read('fake dir').then(() => {
+      throw new Error();
+    }, () => done());
+  });
+
   describe('results', () => {
     it('should be an object', (done) => {
-      app.readFilesInDir(temp).then(files => {
+      app.read(temp).then(files => {
         will(files[0]).beAn(Object);
       }).then(done, done);
     });
 
     it('should have file name', (done) => {
-      app.readFilesInDir(temp).then(files => {
+      app.read(temp).then(files => {
         will(files[0].name).be(fileName);
       }).then(done, done);
     });
 
     it('should have file content', (done) => {
-      app.readFilesInDir(temp).then(files => {
+      app.read(temp).then(files => {
         will(files[0].content).be('foo');
       }).then(done, done);
     });

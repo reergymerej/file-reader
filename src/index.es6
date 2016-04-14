@@ -34,7 +34,7 @@ function readFile(filePath) {
   });
 }
 
-export function readFilesInDir(dirPath) {
+export function read(dirPath) {
   return new Promise((resolve, reject) => {
     getFilesInDir(dirPath).then(
       files => {
